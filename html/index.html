@@ -1,0 +1,179 @@
+<html>
+<head>
+<title>
+
+</title>
+<style>
+body{margin: 0px}
+	#container{
+
+		/*height: 500px;*/
+
+		width: 100%;
+		position: fixed;
+	
+	}
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+	 .scrolled1 {
+    background-image: url("../images/iris.jpg");
+  }
+  	 .scrolled2 {
+    background-image: url("../images/raven.jpg");
+
+  }
+   	 .scrolled3{
+    background-image: url("../images/heart.jpg");
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+	 .scrolled1 {
+    background-image: url("../images/iris.jpg");
+  }
+  	 .scrolled2 {
+    background-image: url("../images/raven.jpg");
+
+  }
+   	 .scrolled3{
+    background-image: url("../images/heart.jpg");
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+	 .scrolled1 {
+    background-image: url("../images/iris.jpg");
+  }
+  	 .scrolled2 {
+    background-image: url("../images/raven.jpg");
+
+  }
+   	 .scrolled3{
+    background-image: url("../images/heart.jpg");
+  }
+
+}
+
+
+	.scrolled1{
+		background-image: url("../images/flowers-bg.png");
+		background-size:     cover;                    
+    	background-repeat:   no-repeat;
+   		background-position: center center; 
+		/*background-color: red;*/
+	}
+
+
+	.scrolled2{
+		background-image: url("../images/birds-bg.png");
+	background-size:     cover;                    
+    	background-repeat:   no-repeat;
+   		background-position: center center; 
+			/*background-color: blue;*/
+	}
+	.scrolled3{
+		background-image: url("../images/other-bg.png");
+		background-size:     cover;                    
+    	background-repeat:   no-repeat;
+   		background-position: center center; 
+		/*background-color: yellow;*/
+	}
+	.section_btn{ 
+			font-family: arial;
+			padding: 10px;
+			text-align: center;
+			position: relative;
+			/*background-color: 000;*/
+			border: 3px solid #fff;
+			color: fff;
+			top: 40%;
+			height: 50px;
+			width: 12%;
+			left: 50%;
+			margin-left: -6%;/*correct left problem*/
+	 		}
+
+		 .section_btn span{
+		 	 width: 50%;
+	      	margin: 15px auto;
+	      	text-align: center;
+	      	display:block
+		 	}
+
+
+
+
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+$( document ).ready(function() {
+	//reset scrolltop
+	$('html, body').animate({scrollTop:0},500);
+
+	let imageHt =jQuery(window).height(); 
+
+	$('#container').height(imageHt);
+
+	//$('body').css("height",imageHt*4);
+$('body').height(imageHt*5);
+	console.log($('body').height())
+	
+
+	let btn_label= "Section-1";
+	let baseHt=$(".container").height();
+	//scroll position activity:
+		$(window).scroll(function(){
+ 			$('.section_btn span').text(btn_label);//get ready to assign new text to btn
+			
+		     var scroll = $(window).scrollTop();
+		    // console.log(scroll)
+		    if(scroll > imageHt && scroll < imageHt*2 )  {
+		    
+		    	btn_label ="Flowers"
+		        $('#container').addClass('scrolled1');
+		        $('#container').removeClass('scrolled2');
+		    }if (scroll > imageHt*2 && scroll < imageHt*3 ) {
+		    	
+		    	btn_label ="Birds"
+		        $('#container').removeClass('scrolled1');
+		        $('#container').removeClass('scrolled3');
+		        $('#container').addClass('scrolled2');
+		    }
+		     if (scroll > imageHt*3 ) {
+		    	
+		    	btn_label="Other subjects"
+		        $('#container').addClass('scrolled3');
+		        $('#container').removeClass('scrolled2');
+		    }
+		});
+
+
+});
+
+
+/*todo
+fix media queries
+
+
+*/
+
+</script>
+</head>
+<body >
+	<section id="container" class="scrolled1">
+	<div class="section_btn">
+		<span>
+			Flowers
+		</span>
+
+	</div>
+	</section>
+</body>
+
+</html>

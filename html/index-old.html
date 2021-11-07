@@ -1,0 +1,124 @@
+<html>
+<head>
+<title>
+
+</title>
+<style>
+body{height: 3000}
+	#cat_bg{
+
+		height: 500px;
+
+		width: 100%;
+		position: fixed;
+	
+	}
+	.scrolled1{
+		background-image: url("../images/flowers-bg.png");
+			background-size:     cover;                    
+    	background-repeat:   no-repeat;
+   		background-position: center center; 
+		/*background-color: red;*/
+	}
+	.scrolled2{
+		background-image: url("../images/birds-bg.png");
+	background-size:     cover;                    
+    	background-repeat:   no-repeat;
+   		background-position: center center; 
+			/*background-color: blue;*/
+	}
+	.scrolled3{
+		background-image: url("../images/other-bg.png");
+		background-size:     cover;                    
+    	background-repeat:   no-repeat;
+   		background-position: center center; 
+		/*background-color: yellow;*/
+	}
+	.section_btn{ 
+			font-family: arial;
+			padding: 10px;
+			text-align: center;
+			position: relative;
+			/*background-color: 000;*/
+			border: 3px solid #fff;
+			color: fff;
+			top: 40%;
+			height: 50px;
+			width: 12%;
+		
+			left: 50%;
+			margin-left: -6%;/*correct left problem*/
+	 		}
+		 .section_btn span{
+		 	 width: 50%;
+	      	margin: 15px auto;
+	      	text-align: center;
+	      	display:block
+		 	}
+
+
+/* make transparent btn  */
+/* bg css  */
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+$( document ).ready(function() {
+	//reset scrolltop
+	//$(window).scrollTop(0);//this is needed to avoid btn label not showing correctly as default is first one
+	$('html, body').animate({scrollTop:0},500);
+	let btn_label= "Section-1";
+	let baseHt=$(".cat_bg").height();
+	//scroll position activity:
+		$(window).scroll(function(){
+ 			$('.section_btn span').text(btn_label);//get ready to assign new text to btn
+			
+		     var scroll = $(window).scrollTop();
+		    // console.log(scroll)
+		    if(scroll > 500 && scroll < 1000 )  {
+		    
+		    	btn_label ="Section-1"
+		        $('#cat_bg').addClass('scrolled1');
+		        $('#cat_bg').removeClass('scrolled2');
+		    }if (scroll > 1000 && scroll < 1500 ) {
+		    	
+		    	btn_label ="Section-2"
+		        $('#cat_bg').removeClass('scrolled1');
+		        $('#cat_bg').removeClass('scrolled3');
+		        $('#cat_bg').addClass('scrolled2');
+		    }
+		     if (scroll > 1500 ) {
+		    	
+		    	btn_label="Section-3"
+		        $('#cat_bg').addClass('scrolled3');
+		        $('#cat_bg').removeClass('scrolled2');
+		    }
+		});
+
+
+});
+
+
+/*todo
+
+-chnage bg image at scroll point 
+
+change link at scroll point 
+
+
+
+*/
+
+</script>
+</head>
+<body >
+	<section id="cat_bg" class="scrolled1">
+	<div class="section_btn">
+		<span>
+			Section-1
+		</span>
+	</div>
+	</section>
+</body>
+
+</html>
