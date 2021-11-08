@@ -6,12 +6,8 @@
 <style>
 body{margin: 0px}
 	#container{
-
-		/*height: 500px;*/
-
 		width: 100%;
 		position: fixed;
-	
 	}
 
 
@@ -87,15 +83,32 @@ body{margin: 0px}
 			padding: 10px;
 			text-align: center;
 			position: relative;
-			/*background-color: 000;*/
+			background-color: #ccc;
 			border: 3px solid #fff;
-			color: fff;
+			color: #000;
 			top: 40%;
 			height: 50px;
 			width: 12%;
 			left: 50%;
 			margin-left: -6%;/*correct left problem*/
+			border-radius:10%;
 	 		}
+	.section_btn:hover{
+		background-color: 000;
+		cursor:pointer;
+		color: #fff;
+	}
+
+	.section_btn a:hover{
+	
+	
+	
+	}
+	.section_btn a{ 
+		text-decoration: none;
+		
+	
+	}
 
 		 .section_btn span{
 		 	 width: 50%;
@@ -120,34 +133,40 @@ $( document ).ready(function() {
 
 	$('#container').height(imageHt);
 
-	//$('body').css("height",imageHt*4);
+	
 $('body').height(imageHt*5);
 	console.log($('body').height())
 	
-
-	let btn_label= "Section-1";
+	
+	let btn_label= "My online Store";
 	let baseHt=$(".container").height();
+	let myUrl ="https://loitermanart.com";
 	//scroll position activity:
 		$(window).scroll(function(){
- 			$('.section_btn span').text(btn_label);//get ready to assign new text to btn
-			
+ 			$('.section_btn span a').text(btn_label);//get ready to assign new text to btn
+			 $(".section_btn span a").attr("href", myUrl)
+			 //('.section_btn span').text(btn_label);
+			;
 		     var scroll = $(window).scrollTop();
 		    // console.log(scroll)
 		    if(scroll > imageHt && scroll < imageHt*2 )  {
 		    
-		    	btn_label ="Flowers"
+		    	btn_label ="My online store";
+				myUrl ="https://loitermanart.com";
 		        $('#container').addClass('scrolled1');
 		        $('#container').removeClass('scrolled2');
 		    }if (scroll > imageHt*2 && scroll < imageHt*3 ) {
 		    	
-		    	btn_label ="Birds"
+		    	btn_label ="My Instagram"
+				myUrl ="https://www.instagram.com/loitermanart";
 		        $('#container').removeClass('scrolled1');
 		        $('#container').removeClass('scrolled3');
 		        $('#container').addClass('scrolled2');
 		    }
 		     if (scroll > imageHt*3 ) {
 		    	
-		    	btn_label="Other subjects"
+		    	btn_label="My LinkeIn"
+				myUrl ="https://www.linkedin.com/in/evan-loiterman-6b15466/";
 		        $('#container').addClass('scrolled3');
 		        $('#container').removeClass('scrolled2');
 		    }
@@ -169,7 +188,7 @@ fix media queries
 	<section id="container" class="scrolled1">
 	<div class="section_btn">
 		<span>
-			Flowers
+			<a href="">Flowers</a>
 		</span>
 
 	</div>
